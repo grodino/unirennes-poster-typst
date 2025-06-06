@@ -1,4 +1,4 @@
-#import "@local/unirennes-poster:0.1.0": unirennes-poster, unirennes-colors
+#import "@local/unirennes-poster:0.2.0": unirennes-poster, unirennes-colors
 
 #show: unirennes-poster.with(
   author: grid(columns: (60%, 40%))[
