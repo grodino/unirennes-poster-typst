@@ -12,9 +12,6 @@
   size: none,
   header: [],
   footer: [],
-  logos: none,
-  split-size: 25%,
-  notes: "hide",
   font-sizes: consts.font-sizes,
   body,
 ) = {
@@ -40,20 +37,19 @@
   set text(font: "Newsreader", size: font-sizes.text)
   set par(justify: true)
 
-  // Headings. Need this ugly foo loop to allow theme user to customize
-  // headings appearance via show rules.
-  for level in range(3) {
-    show heading.where(level: level): set text(font: "UniRennes", size: font-sizes.heading.at(level))
+  // Headings
+  show heading: it => {
+    set text(font: "UniRennes", size: font-sizes.heading.at(it.level - 1))
+    it
   }
-  show heading: set align(left)
-  show heading: set text(font: "UniRennes")
 
 
   // Body contents
-  block(
-    height: 100%,
-    width: 100%,
-    inset: (x: 1em, top: 2em, bottom: 1em),
-    columns(3, gutter: 3em, align(horizon, body)),
-  )
+  // block(
+  //   height: 100%,
+  //   width: 100%,
+  //   inset: (x: 1em, top: 2em, bottom: 1em),
+  //   columns(3, gutter: 3em, align(horizon, body)),
+  // )
+  body
 }
