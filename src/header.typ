@@ -1,7 +1,9 @@
-#import "consts.typ": font-sizes
+#import "consts.typ"
 #import "../common/src/colors.typ": *
 
-#let dark-body-light-logo(title: [], logos: ()) = context {
+#let dark-body-light-logo(title: [], logos: (), font-sizes: consts.font-sizes) = {
+  font-sizes = consts.normalize-font-sizes(font-sizes)
+
   let logo-grid = grid(columns: 3, align: left + horizon, gutter: 1cm, ..logos)
   let inset = 2cm
 
@@ -9,7 +11,7 @@
   show strong: set text(font: "UniRennes Inline")
   set align(left + horizon)
 
-  block(
+  context block(
     width: 100%,
     height: 100%,
     clip: true,

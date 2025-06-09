@@ -3,7 +3,7 @@
 #import "../common/src/colors.typ" as unirennes-colors
 #import "footer.typ"
 #import "header.typ"
-#import "consts.typ": font-sizes
+#import "consts.typ"
 
 ////////////////////////////////////////////////////////////////////////////////
 /// GLOBAL CONFIGURATION                                                     ///
@@ -15,8 +15,11 @@
   logos: none,
   split-size: 25%,
   notes: "hide",
+  font-sizes: consts.font-sizes,
   body,
 ) = {
+  font-sizes = consts.normalize-font-sizes(font-sizes)
+
   set page(
     // Set the page dimensions
     ..if size == none { (paper: "a0") },

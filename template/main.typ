@@ -1,30 +1,28 @@
-#import "@local/unirennes-poster:0.2.0": unirennes-poster, unirennes-colors
+#import "@local/unirennes-poster:0.2.0": unirennes-poster, unirennes-colors, header, footer
+
+#set page(paper: "a1", flipped: true)
 
 #show: unirennes-poster.with(
-  author: grid(columns: (60%, 40%))[
-    #set align(center)
+  header: header.dark-body-light-logo(
+    title: stack(
+      dir: ltr,
+      spacing: 2cm,
+      [
+        #strong[Qu]eries, #strong[R]epresentation & #strong[D]etection:\ The Next 100 Model Fingerprinting Schemes
+      ],
+    ),
 
-    Professeur Tournesol\
-    Université de Rennes, Moulinsart
-  ][
-    #set align(right)
-    #set text(font: "UniRennes", size: 100pt, fill: unirennes-colors.accent-orange.light)
-    *CHANGE MY MIND*
-  ],
-  title: [Large models are #text(font: "UniRennes Inline", fill: unirennes-colors.accent-orange.light)[impossible] to
-    regulate.],
-  info: stack(
-    dir: ltr,
-    spacing: 1fr,
-    [5e Conférence sur les Trésors de Rakham le Rouge],
-    [Tintin (Le Petit Vingtième), Milou (Dans l'Os), Haddock (Le Karaboudjan)],
-    [#link("mailto:proffeseur.tournesol@univ-rennes.fr") -- #link(
-        "https://fr.wikipedia.org/wiki/Les_Aventures_de_Tintin",
-        "wiki.tintin.be",
-      )],
+    logos: (
+      grid.cell(rowspan: 2, image(width: 10cm, "assets/logos/irisa/50ans-color.svg")),
+      image(width: 10cm, "assets/logos/univ-rennes/black.svg"),
+      image(width: 5cm, "assets/logos/peren.png"),
+      image(width: 10cm, "assets/logos/inria/red.svg"),
+      image(width: 6cm, fit: "cover", "assets/logos/hi-paris.png"),
+    ),
   ),
-  logos: (
-    "left": image("assets/logos/univ-rennes.png"),
-    "right": image("assets/logos/univ-rennes.png"),
+  footer: footer.simple-dark(
+    [AAAI25 - Philadelphia, USA],
+    [#underline[Augustin Godinot], Gilles Tredan, Erwan Le Merrer, Camilla Penzo, Francois Taiani],
+    [#link("mailto:augustin.godinot@inria.fr") -- #link("https://grodino.github.io/", "grodino.github.io/")],
   ),
 )
