@@ -22,12 +22,12 @@
     ..if size == none { (paper: "a0") },
     ..if size != none { (height: size.at(0), width: size.at(1)) },
     // Margins
-    margin: (x: 0pt, bottom: 2cm, top: 12cm),
-    header-ascent: 0pt,
+    margin: (x: 0pt, bottom: 2cm, top: 13cm),
+    header-ascent: 1cm,
     footer-descent: 0pt,
     // Content of header and footer
-    header: header,
-    footer: footer,
+    header: header(font-sizes: font-sizes),
+    footer: footer(font-sizes: font-sizes),
   )
 
   // List marker

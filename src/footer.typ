@@ -1,7 +1,7 @@
 #import "../common/src/colors.typ": *
 #import "consts.typ"
 
-#let simple-dark(..cols, font-sizes: consts.font-sizes) = {
+#let simple-dark(..cols) = (font-sizes: consts.font-sizes) => {
   font-sizes = consts.normalize-font-sizes(font-sizes)
 
   context block(
