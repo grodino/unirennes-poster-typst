@@ -10,24 +10,29 @@
 ////////////////////////////////////////////////////////////////////////////////
 #let unirennes-poster(
   size: none,
-  header: [],
-  footer: [],
+  header: none,
+  footer: none,
   font-sizes: consts.font-sizes,
   body,
 ) = {
   font-sizes = consts.normalize-font-sizes(font-sizes)
+  let margins = (x: 2cm, bottom: 2cm, top: 13cm)
+
+  if footer == none {
+    margins.insert("bottom", 0cm)
+  }
 
   set page(
     // Set the page dimensions
     ..if size == none { (paper: "a0") },
     ..if size != none { (height: size.at(0), width: size.at(1)) },
     // Margins
-    margin: (x: 0pt, bottom: 2cm, top: 13cm),
+    margin: margins,
     header-ascent: 1cm,
     footer-descent: 0pt,
     // Content of header and footer
     header: header(font-sizes: font-sizes),
-    footer: footer(font-sizes: font-sizes),
+    footer: if footer != none { footer(font-sizes: font-sizes) },
   )
 
   // List marker
